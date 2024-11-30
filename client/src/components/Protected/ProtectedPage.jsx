@@ -5,24 +5,24 @@ export default function ProtectedPage() {
   const [error, setError] = useState("");
 
     async function fetchWithAuth(url) {
-  const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token");
 
-  if (!token) {
-    throw new Error("No token found. Please log in.");
-  }
+        if (!token) {
+          throw new Error("No token found. Please log in.");
+        }
 
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${token}`, 
-    },
-  });
+        const response = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+                   },
+         });
 
-  if (!response.ok) {
-    throw new Error("Failed to authenticate. Please try logging in again.");
-  }
+        if (!response.ok) {
+          throw new Error("Failed to authenticate. Please try logging in again.");
+        }
 
-  return response.json();
-}
+        return response.json();
+      }
 
   useEffect(() => {
     async function fetchProtectedData() {

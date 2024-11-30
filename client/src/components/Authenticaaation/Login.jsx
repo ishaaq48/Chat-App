@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { FormContext } from "../context/FormContext";
 import { handleInput, handleSubmit } from "../services/LoginHandle"; 
-
+import 'animate.css'
 export default function Login() {
   const { formInputs, setFormInputs } = useContext(FormContext);
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ export default function Login() {
         style={{ maxWidth: "800px", overflow: "hidden" }}
       >
         
-        <div className="d-flex flex-column justify-content-center align-items-center bg-primary-subtle w-50 p-4">
+        <div className="d-flex flex-column justify-content-center align-items-center bg-primary-subtle w-50 p-4 animate__animated animate__backInLeft animate__slow">
           <h1 className="text-center">New here?</h1>
           <Link to="/signup" className="btn btn-dark mt-4">
             Signup
@@ -28,7 +28,7 @@ export default function Login() {
         
         <form
           onSubmit={(event) => handleSubmit(event, formInputs, setFormInputs, navigate)} 
-          className="d-flex flex-column justify-content-center bg-dark-subtle w-50 p-4"
+          className="d-flex flex-column justify-content-center bg-dark-subtle w-50 p-4 animate__animated animate__backInRight animate__slow"
         >
           <div className="mb-3">
             <label htmlFor="username" className="form-label h5">
