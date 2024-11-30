@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const dotenv = require('dotenv')
 const cors = require("cors");
 const { loginUser,registerUser } = require('./controller/authController');
+const { verifyToken } = require('./middleware/authMiddleware');
 
 dotenv.config()
 const app = express()
@@ -15,6 +16,10 @@ app.use(cors());
 const httpServer = createServer(app)
 app.post('/api/signup', registerUser)
 app.post('/api/login', loginUser)
+
+app.get("/protected", verifyToken, (req,res) => {
+    res.json({ message: `Welcome, ${req.user.username}! You have access to this protected route.` })
+})
 
 const io = new Server(httpServer,{
     cors: {

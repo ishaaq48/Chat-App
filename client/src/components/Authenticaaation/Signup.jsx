@@ -25,7 +25,11 @@ export default function Signup( {formInputs, setFormInputs}){
 
       if (response.ok) {
         alert("Registration successful! Please login.");
-        setFormInputs({}); // Clear form inputs after success
+        setFormInputs({
+          username: "",
+          email: "",
+          password: ""
+        }); 
       } else {
         alert("Registration failed: " + data.message);
       }

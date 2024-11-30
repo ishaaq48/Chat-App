@@ -7,6 +7,8 @@ import Homepage from './components/Homepage'
 import { useEffect, useState } from 'react'
 import Signup from './components/Authenticaaation/Signup'
 import Login from './components/Authenticaaation/Login'
+import ProtectedRoute from './components/Protected/ProtectedRoute'
+import ProtectedPage from './components/Protected/ProtectedPage'
 
 function App() {
   const [ formInputs, setFormInputs] = useState({})
@@ -22,13 +24,22 @@ function App() {
     <>
       <Link to = "/home" className='btn btn-outline-danger m-2'>Home</Link>
       <Routes>
-          <Route path = "/home" element={<Homepage />} />
+        <Route path='/home' element={<Homepage />}></Route>
+          <Route path = "/protected" element={
+            <ProtectedRoute>
+              <ProtectedPage />
+            </ProtectedRoute>
+            } 
+            />
           <Route path = "/signup" element={<Signup 
               formInputs = {formInputs}
               setFormInputs = {setFormInputs}
             
             />} />
-          <Route path = "/login" element={<Login />} />
+          <Route path = "/login" element={<Login 
+              formInputs = {formInputs}
+              setFormInputs = {setFormInputs}
+          />} />
       </Routes>
       
     </>
