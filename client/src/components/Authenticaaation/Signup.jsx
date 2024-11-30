@@ -1,8 +1,12 @@
 
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { FormContext } from "../context/FormContext"
 
-export default function Signup( {formInputs, setFormInputs}){
-   
+export default function Signup( ){
+  
+    const {formInputs, setFormInputs} = useContext(FormContext) 
+
     function handleInput(event){
         const { name, value } = event.target
         let obj = {[name]:value}

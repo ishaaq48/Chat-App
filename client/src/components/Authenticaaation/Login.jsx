@@ -1,7 +1,10 @@
 import { Link, useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { FormContext } from "../context/FormContext"
+export default function Login(){
 
+    const {formInputs, setFormInputs} = useContext(FormContext)
 
-export default function Login( {formInputs, setFormInputs} ){
     const navigate = useNavigate()
     function handleInput(event){
         const { name, value } = event.target
