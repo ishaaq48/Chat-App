@@ -43,54 +43,72 @@ export default function Signup( ){
     }
   }
     return (
-        <div className="container d-flex" style={{height: "100vh"}}>
-            <div className="container bg-success d-flex flex-column justify-content-center align-items-center w-50 h-50">
-                <h1>Welcome Back</h1>
-                <Link to="/login" className="btn btn-outline-warning m-2">Login</Link>
-
-            </div>
-            <form 
-                className="container bg-warning p-3 rounded d-flex flex-column justify-content-center w-75 h-50"
-                onSubmit={handleSubmit}
-                >
-                <div className="mb-3">
-                    <label htmlFor="" className="h5">Username</label>
-                    <input 
-                        type="text"    
-                        className="form-control" 
-                        name="username"
-                        onChange={handleInput}
-                        value={formInputs.username}
-                        />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="" className="h5">Email address</label>
-                    <input 
-                        type="email" 
-                        className="form-control" 
-                        name="email"
-                        onChange={handleInput}
-                        value={formInputs.email}
-                        />
-                        
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="" className="h5">Password</label>
-                    <input 
-                        type="password" 
-                        className="form-control" 
-                        name="password"
-                        onChange={handleInput}
-                        value={formInputs.password}
-                        />
-                </div>
-               <button 
-                    type="submit" 
-                    className="btn btn-outline-success"
-                    >Signup</button>
-            </form>
-        
+        <div
+      className="d-flex justify-content-center align-items-center vh-100"
+      style={{ backgroundColor: "#f8f9fa" }} // Light background
+    >
+      <div
+        className="container d-flex bg-light rounded shadow"
+        style={{ maxWidth: "800px", overflow: "hidden" }}
+      >
+        {/* Left Panel */}
+        <div className="d-flex flex-column justify-content-center align-items-center bg-primary-subtle w-50 p-4">
+          <h1 className="text-center">Welcome Back</h1>
+          <Link to="/login" className="btn btn-dark mt-4">
+            Login
+          </Link>
         </div>
+
+        {/* Signup Form */}
+        <form
+          className="d-flex flex-column justify-content-center bg-dark-subtle w-50 p-4"
+          onSubmit={handleSubmit}
+        >
+          <div className="mb-3">
+            <label htmlFor="username" className="form-label h5">
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              className="form-control"
+              name="username"
+              onChange={handleInput}
+              value={formInputs.username || ""}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label h5">
+              Email address
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="form-control"
+              name="email"
+              onChange={handleInput}
+              value={formInputs.email || ""}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label h5">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="form-control"
+              name="password"
+              onChange={handleInput}
+              value={formInputs.password || ""}
+            />
+          </div>
+          <button type="submit" className="btn btn-outline-dark">
+            Signup
+          </button>
+        </form>
+      </div>
+    </div>
     )
 }
                                                                                                                                                                                                                                                                                                                                                                                                                 
